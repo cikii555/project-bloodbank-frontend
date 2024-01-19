@@ -3,6 +3,8 @@ import { useNavigate } from "react-router-dom";
 function Dashboard() {
   const navigate = useNavigate();
   function logoutSubmit() {
+    localStorage.removeItem("jwt");
+    localStorage.setItem("loginStatus", "Logged out successfully");
     navigate("/");
   }
   return (

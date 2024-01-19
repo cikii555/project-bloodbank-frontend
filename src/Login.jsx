@@ -10,10 +10,23 @@ function Login() {
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
   useEffect(() => {
+    let jwt = localStorage.getItem("jwt");
+    if (jwt) {
+      navigate("/dashboard");
+    }
+    let loginStatus = localStorage.getItem("loginStatus");
+    if (loginStatus) {
+      setError(loginStatus);
+      setTimeout(function () {
+        localStorage.clear();
+        window.location.reload();
+      }, 1500);
+    }
     setTimeout(function () {
       setMessage("");
     }, 5000);
   }, [message]);
+
   const handleInputChange = (e, type) => {
     switch (type) {
       case "user":
