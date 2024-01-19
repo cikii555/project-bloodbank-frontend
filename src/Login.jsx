@@ -51,14 +51,18 @@ function Login() {
       })
         .then((response) => response.json())
         .then((response) => {
+          console.log(response.message);
+          console.log(response.jwt);
           if (
-            response[0].result === "Invalid username!" ||
-            response[0].result === "Invalid password!"
+            response.message === "Invalid username!" ||
+            response.message === "Invalid password!"
           ) {
-            setError(result[0].result);
+            setError(response.message);
           } else {
-            setMessage(response[0].result);
+            setMessage(response.message);
+
             setTimeout(function () {
+              localStorage.setItem("jwt", response.jwt);
               navigate("/dashboard");
             }, 5000);
           }
@@ -74,20 +78,17 @@ function Login() {
   return (
     <div className="form">
       <p>
-        error !== ""?
-        <span className="error">{error}</span>:
-        <span className="success">{message}</span>
+        {error !== "" ? (
+          <span className="error">{error}</span>
+        ) : (
+          <span className="success">{message}</span>
+        )}
       </p>
       <label>Username</label>
-      <input
-        type="text"
-        value="user"
-        onChange={(e) => handleInputChange(e, "user")}
-      ></input>
+      <input type="text" onChange={(e) => handleInputChange(e, "user")}></input>
       <label>Password</label>
       <input
         type="password"
-        value="password"
         onChange={(e) => handleInputChange(e, "password")}
       ></input>
       <input

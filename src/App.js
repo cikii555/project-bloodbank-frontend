@@ -7,7 +7,6 @@ import Dashboard from "./Dashboard";
 function App() {
   return (
     <>
-      /*{" "}
       <BrowserRouter>
         <Routes>
           <Route key="login" path="/" element={<Login />}></Route>
