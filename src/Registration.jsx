@@ -6,6 +6,15 @@ function Registration() {
   const [pass1, setPass1] = useState("");
   const [pass2, setPass2] = useState("");
   const [error, setError] = useState("");
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [address, setAddress] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [idNumber, setIdNumber] = useState("");
+  const [occupation, setOccupation] = useState("");
+
   const [msg, setMsg] = useState("");
   useEffect(() => {
     setTimeout(function () {
@@ -43,6 +52,63 @@ function Registration() {
         } else if (e.target.value !== pass1) {
           setError("Confirm password doesnt match");
         }
+        break;
+      case "name":
+        setError("");
+        setName(e.target.value);
+        if (e.target.value === "") {
+          setError("Name has been left blank");
+        }
+        break;
+      case "surname":
+        setError("");
+        setSurname(e.target.value);
+        if (e.target.value === "") {
+          setError("Surname  has been left blank");
+        }
+        break;
+      case "address":
+        setError("");
+        setAddress(e.target.value);
+        if (e.target.value === "") {
+          setError("Address has been left blank");
+        }
+        break;
+      case "city":
+        setError("");
+        setCity(e.target.value);
+        if (e.target.value === "") {
+          setError("City has been left blank");
+        }
+        break;
+      case "country":
+        setError("");
+        setCountry(e.target.value);
+        if (e.target.value === "") {
+          setError("Country has been left blank");
+        }
+        break;
+      case "phoneNumber":
+        setError("");
+        setPhoneNumber(e.target.value);
+        if (e.target.value === "") {
+          setError("Phone number has been left blank");
+        }
+        break;
+      case "idNumber":
+        setError("");
+        setIdNumber(e.target.value);
+        if (e.target.value === "") {
+          setError("Id number has been left blank");
+        }
+        break;
+      case "occupation":
+        setError("");
+        setOccupation(e.target.value);
+        if (e.target.value === "") {
+          setError("Occupation has been left blank");
+        }
+
         break;
       default:
     }
@@ -104,7 +170,16 @@ function Registration() {
         user: user,
         email: email,
         pass: pass2,
+        name: name,
+        surname: surname,
+        address: address,
+        city: city,
+        country: country,
+        occupation: occupation,
+        idNumber: idNumber,
+        phoneNumber: phoneNumber,
       };
+      console.log(Data);
       fetch(url, {
         method: "POST",
         headers: headers,
@@ -142,6 +217,62 @@ function Registration() {
             <span className="error">{error}</span>
           )}
         </p>
+        <label>Name</label>
+        <input
+          type="text"
+          name="name"
+          value={name}
+          onChange={(e) => handleInputChange(e, "name")}
+        ></input>
+        <label>Surname</label>
+        <input
+          type="text"
+          name="surname"
+          value={surname}
+          onChange={(e) => handleInputChange(e, "surname")}
+        ></input>
+        <label>Address</label>
+        <input
+          type="text"
+          name="address"
+          value={address}
+          onChange={(e) => handleInputChange(e, "address")}
+        ></input>
+        <label>City</label>
+        <input
+          type="text"
+          name="city"
+          value={city}
+          onChange={(e) => handleInputChange(e, "city")}
+        ></input>
+        <label>Country</label>
+        <input
+          type="text"
+          name="country"
+          value={country}
+          onChange={(e) => handleInputChange(e, "country")}
+        ></input>
+        <label>Phone number</label>
+        <input
+          type="text"
+          name="phoneNumber"
+          value={phoneNumber}
+          onChange={(e) => handleInputChange(e, "phoneNumber")}
+        ></input>
+        <label>Id number </label>
+        <input
+          type="text"
+          name="idNumber"
+          value={idNumber}
+          onChange={(e) => handleInputChange(e, "idNumber")}
+        ></input>
+        <label>Occupation</label>
+        <input
+          type="text"
+          name="occupation"
+          value={occupation}
+          onChange={(e) => handleInputChange(e, "occupation")}
+        ></input>
         <label>Username</label>
         <input
           type="text"
