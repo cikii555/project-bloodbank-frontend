@@ -9,9 +9,9 @@ function Login() {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [message, setMessage] = useState("");
-  useEffect(() => {
+  /*useEffect(() => {
     let jwt = localStorage.getItem("jwt");
-    if (jwt) {
+    /* if (jwt) {
       navigate("/dashboard");
     }
     let loginStatus = localStorage.getItem("loginStatus");
@@ -25,7 +25,7 @@ function Login() {
     setTimeout(function () {
       setMessage("");
     }, 5000);
-  }, [message]);
+  }, []);*/
 
   const handleInputChange = (e, type) => {
     switch (type) {
@@ -76,7 +76,7 @@ function Login() {
 
             setTimeout(function () {
               localStorage.setItem("jwt", response.jwt);
-              navigate("/dashboard");
+              navigate("/admin/dashboard");
             }, 5000);
           }
         })

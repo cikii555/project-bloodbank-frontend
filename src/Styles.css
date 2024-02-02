@@ -1,5 +1,5 @@
 body {
-    display: flex;
+    
     align-items: center;
     justify-content: center;
     height: 100vh;
@@ -29,12 +29,13 @@ input[type = text], input[type=email], input[type=password]{
 }
 
 .form {
-   display: flex;
+   display:grid;
    flex-direction: column;
-   justify-content: left;
-   justify-items: flex-start;
-   width: auto;
-   padding: 30px;
+   justify-content: center;
+   justify-items: center;
+   margin-left: 150px;
+   width: 300px;
+   padding: 200px;
    box-shadow: 2px  4px 10px rgba(0.0,0,0,0.7); 
    border-radius: 5px;
 }

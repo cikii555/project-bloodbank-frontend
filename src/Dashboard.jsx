@@ -1,5 +1,8 @@
-import "./Styles.css";
 import { useNavigate } from "react-router-dom";
+import "./App.css";
+import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
+import Navbar from "./Navbar";
+import Registration from "./Registration";
 function Dashboard() {
   const navigate = useNavigate();
   function logoutSubmit() {
@@ -8,12 +11,12 @@ function Dashboard() {
     navigate("/");
   }
   return (
-    <div className="form">
-      <h3>Dashboard page</h3>
-      <p className="paragraph" onClick={logoutSubmit}>
-        Logout
-      </p>
-    </div>
+    <>
+      <div>
+        <h3>Dashboard page</h3>
+        <p onClick={logoutSubmit}>Logout</p>
+      </div>
+    </>
   );
 }
 

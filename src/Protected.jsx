@@ -9,7 +9,7 @@ const Protected = (props) => {
       localStorage.setItem("loginStatus", "Please login to view dashboard!");
     }
     navigate("/", { replace: true });
-  }, []);
+  }, [navigate]);
   return <Component />;
 };
 export default Protected;
